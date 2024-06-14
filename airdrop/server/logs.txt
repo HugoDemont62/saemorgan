@@ -1,0 +1,43 @@
+morgan connected
+receive test.txt from morgan
+nagrom connected
+file test doesn't exist and can't be sent to nagrom
+Connection with nagrom :('127.0.0.1', 57917) closed
+nagrom connected
+send None to nagrom
+nagrom connected
+file test doesn't exist and can't be sent to nagrom
+Connection with nagrom :('127.0.0.1', 58286) closed
+nagrom connected
+send test.txt to nagrom
+nagrom connected
+send test.txt to nagrom
+morgan connected
+send test.txt to morgan
+morgan connected
+send test.txt to morgan
+morgan connected
+send test.txt to morgan
+morgan connected
+send test.txt to morgan
+morgan connected
+send test.txt to morgan
+morgan connected
+send test.txt to morgan
+morgan connected
+send test.txt to morgan
+morgan connected
+b'file sended'
+morgan connected
+b'file sended'
+morgan connected
+b'file sended'
+morgan connected
+b'file sended'
+Connection with morgan :('127.0.0.1', 63200) closed
+morgan connected
+morgan connected
+b'file sended'
+b'file sended'
+morgan connected
+b'file sended'
