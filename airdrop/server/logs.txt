@@ -1,0 +1,24 @@
+morgan connected,2024-06-21 16:40:09
+
+list of file sent to morgan,2024-06-21 16:40:16
+
+file test.txt received from morgan,2024-06-21 16:40:33
+
+list of file sent to morgan,2024-06-21 16:40:36
+
+list of connected client sent to morgan,2024-06-21 16:40:47
+
+alexis connected,2024-06-21 16:40:53
+
+list of connected client sent to morgan,2024-06-21 16:40:57
+
+connection with morgan :('127.0.0.1', 51530) closed,2024-06-21 16:41:22
+
+list of file sent to alexis,2024-06-21 16:41:27
+
+file test.txt sent to alexis,2024-06-21 16:41:37
+
+list of connected client sent to alexis,2024-06-21 16:41:49
+
+connection with alexis :('127.0.0.1', 51575) closed,2024-06-21 16:41:58
+
