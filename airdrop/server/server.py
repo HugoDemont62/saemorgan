@@ -16,6 +16,7 @@ class EchoServerThread(threading.Thread):
         self.messagelog = None
         self.filename = None
         self.nom = None
+        self.choixnom = None
         print(f"connection from {client_address}")
 
     # Défini la fonction envoie de fichier
@@ -61,9 +62,14 @@ class EchoServerThread(threading.Thread):
 
     # Permet d'ajouter le nom d'une personne se connectant
     def add_person(self):
+        self.nom = self.client_socket.recv(1024).decode('utf-8').strip()
         if self.nom not in listnom:
             listnom.append(self.nom)
-
+            self.client_socket.sendall("ok".encode('utf-8'))
+            self.choixnom = 1
+        else :
+            self.client_socket.sendall("invalid name".encode('utf-8'))
+            self.choixnom = 0
         if self.client_address not in listip:
             listip.append(self.client_address)
 
@@ -71,6 +77,8 @@ class EchoServerThread(threading.Thread):
     def remove_person(self):
         if self.nom in listnom:
             listnom.remove(self.nom)
+        if self.client_address in listip:
+            listip.remove(self.client_address)
 
     def run(self):
         try:
@@ -78,8 +86,10 @@ class EchoServerThread(threading.Thread):
             self.client_socket.sendall("client connected".encode('utf-8'))
 
             # Reçoit le nom du client, note la connection dans les logs et l'ajoute à la liste des personnes connectées
-            self.nom = self.client_socket.recv(1024).decode('utf-8').strip()
-            self.add_person()
+            while self.choixnom != 1:
+                self.add_person()
+
+
             self.messagelog = self.nom + f" connected"
             self.trace()
 

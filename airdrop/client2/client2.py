@@ -7,13 +7,18 @@ def client_program():
     echo_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        #  Permet de récuperer le nom du client
-        nom = input("enter your name: ").strip()
         # Permet de se connecter au serveur
         echo_socket.connect((host_name, port_number))
         connection_message = echo_socket.recv(1024).decode('utf-8').strip()
-        # Permet d'envoyer le nom du client au serveur
-        echo_socket.sendall(nom.encode('utf-8'))
+        server_message=None
+        while server_message!="ok":
+            nom = input("enter your name: ").strip()
+            # Permet d'envoyer le nom du client au serveur
+            echo_socket.sendall(nom.encode('utf-8'))
+            server_message = echo_socket.recv(1024).decode('utf-8').strip()
+            print(server_message)
+
+
         server_message = echo_socket.recv(1024).decode('utf-8').strip()
 
         while True:
